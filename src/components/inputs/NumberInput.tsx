@@ -68,11 +68,15 @@ export const NumberInput = ({
   return (
     <div className="form-group">
       <label className="form-label">
-        {label}
-        {unit && <span className="text-gray-500 text-sm ml-2">({unit})</span>}
-        {required && <span className="text-red-500">*</span>}
+        <span className="flex items-center justify-between">
+          <span>
+            {label}
+            {required && <span className="text-error ml-1">*</span>}
+          </span>
+          {unit && <span className="text-xs font-normal text-tertiary">({unit})</span>}
+        </span>
       </label>
-      <div className="relative">
+      <div className="relative group">
         <input
           type="text"
           inputMode="decimal"
@@ -82,16 +86,18 @@ export const NumberInput = ({
           onBlur={() => setIsFocused(false)}
           placeholder={placeholder}
           disabled={disabled}
-          className={`form-input ${error ? 'border-red-500' : ''}`}
+          className={`form-input w-full transition-all ${
+            error ? 'border-error focus:border-error' : ''
+          } ${disabled ? 'opacity-50' : ''}`}
         />
         {unit && !isFocused && (
-          <span className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-500">
+          <span className="absolute right-4 top-1/2 transform -translate-y-1/2 text-tertiary text-sm font-medium pointer-events-none">
             {unit}
           </span>
         )}
       </div>
-      {hint && <p className="form-hint">{hint}</p>}
-      {error && <p className="form-error">{error}</p>}
+      {hint && !error && <p className="form-hint text-xs">{hint}</p>}
+      {error && <p className="form-error text-xs flex items-center gap-1">⚠️ {error}</p>}
     </div>
   );
 };

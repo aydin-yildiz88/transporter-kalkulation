@@ -65,7 +65,7 @@ export const CurrencyInput = ({
     <div className="form-group">
       <label className="form-label">
         {label}
-        {required && <span className="text-red-500">*</span>}
+        {required && <span className="text-error ml-1">*</span>}
       </label>
       <input
         type="text"
@@ -76,10 +76,12 @@ export const CurrencyInput = ({
         onBlur={() => setIsFocused(false)}
         placeholder={placeholder}
         disabled={disabled}
-        className={`form-input ${error ? 'border-red-500' : ''}`}
+        className={`form-input w-full transition-all ${
+          error ? 'border-error focus:border-error' : ''
+        } ${disabled ? 'opacity-50' : ''}`}
       />
-      {hint && <p className="form-hint">{hint}</p>}
-      {error && <p className="form-error">{error}</p>}
+      {hint && !error && <p className="form-hint text-xs">{hint}</p>}
+      {error && <p className="form-error text-xs flex items-center gap-1">⚠️ {error}</p>}
     </div>
   );
 };
