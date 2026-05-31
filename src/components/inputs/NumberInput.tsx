@@ -33,6 +33,13 @@ export const NumberInput = ({
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
+
+    if (inputValue === '') {
+      setError(null);
+      onChange(0);
+      return;
+    }
+
     const numValue = parsers.number(inputValue);
 
     if (isNaN(numValue)) {

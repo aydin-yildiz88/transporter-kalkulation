@@ -9,12 +9,15 @@ export type SheetTab =
   | 'verwaltung'
   | 'kfzkosten'
   | 'stopp'
-  | 'kostentransporter';
+  | 'kostentransporter'
+  | 'stundenzettel'
+  | 'fahrtenbuch';
 
 interface AppStore {
   // Navigation
   currentSheet: SheetTab;
   sidebarOpen: boolean;
+  activeVehicleId: string | null;
 
   // UI State
   loading: boolean;
@@ -31,6 +34,7 @@ interface AppStore {
   // Actions
   setCurrentSheet: (sheet: SheetTab) => void;
   toggleSidebar: () => void;
+  setActiveVehicleId: (vehicleId: string | null) => void;
   setLoading: (loading: boolean) => void;
   setError: (error: string | null) => void;
   setSuccessMessage: (message: string | null) => void;
@@ -42,6 +46,7 @@ interface AppStore {
 export const useAppStore = create<AppStore>((set) => ({
   currentSheet: 'datenblatt',
   sidebarOpen: true,
+  activeVehicleId: null,
   loading: false,
   error: null,
   successMessage: null,
@@ -57,6 +62,10 @@ export const useAppStore = create<AppStore>((set) => ({
 
   toggleSidebar: () => {
     set((state) => ({ sidebarOpen: !state.sidebarOpen }));
+  },
+
+  setActiveVehicleId: (vehicleId) => {
+    set({ activeVehicleId: vehicleId });
   },
 
   setLoading: (loading) => {

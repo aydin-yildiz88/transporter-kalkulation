@@ -29,6 +29,13 @@ export const CurrencyInput = ({
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = e.target.value;
+
+    if (inputValue === '') {
+      setError(null);
+      onChange(0);
+      return;
+    }
+
     const numValue = parsers.currency(inputValue);
 
     if (isNaN(numValue)) {

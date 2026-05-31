@@ -2,6 +2,7 @@ import { useVehicleStore } from '../store/vehicleStore';
 import { useCalculationStore } from '../store/calculationStore';
 import { formatters } from '../utils/formatters';
 import { ExportButtons } from './ExportButtons';
+import { VehicleSelector } from './VehicleSelector';
 
 export const Dashboard = () => {
   const vehicles = useVehicleStore((state) => state.getAllVehicles());
@@ -9,6 +10,9 @@ export const Dashboard = () => {
 
   return (
     <div className="space-y-6">
+      {/* Vehicle Selector */}
+      <VehicleSelector />
+
       {/* Welcome */}
       <div className="bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg shadow-md p-8">
         <h1 className="text-4xl font-bold mb-2">🚛 Willkommen zur LKW-Transporter Kalkulation</h1>

@@ -5,3 +5,5 @@ export { Sheet6Verwaltung } from './Sheet6Verwaltung';
 export { Sheet7KFZKosten } from './Sheet7KFZKosten';
 export { Sheet8Stopp } from './Sheet8Stopp';
 export { Sheet9KostenTransporter } from './Sheet9KostenTransporter';
+export { Sheet10Stundenzettel } from './Sheet10Stundenzettel';
+export { Sheet11Fahrtenbuch } from './Sheet11Fahrtenbuch';

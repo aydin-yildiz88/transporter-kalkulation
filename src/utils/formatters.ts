@@ -70,14 +70,20 @@ export const formatters = {
  */
 export const parsers = {
   currency: (value: string): number => {
-    return parseFloat(value.replace(/[^\d,-]/g, '').replace(',', '.'));
+    if (!value || value.trim() === '') return 0;
+    const parsed = parseFloat(value.replace(/[^\d,-]/g, '').replace(',', '.'));
+    return isNaN(parsed) ? 0 : parsed;
   },
 
   number: (value: string): number => {
-    return parseFloat(value.replace(',', '.'));
+    if (!value || value.trim() === '') return 0;
+    const parsed = parseFloat(value.replace(',', '.'));
+    return isNaN(parsed) ? 0 : parsed;
   },
 
   percent: (value: string): number => {
-    return parseFloat(value.replace('%', '').trim());
+    if (!value || value.trim() === '') return 0;
+    const parsed = parseFloat(value.replace('%', '').trim());
+    return isNaN(parsed) ? 0 : parsed;
   },
 };

@@ -13,6 +13,8 @@ export const MainLayout = ({ children }: { children: React.ReactNode }) => {
     { id: 'kfzkosten', label: '🚗 KFZ Kosten', icon: '🚗' },
     { id: 'stopp', label: '⏸️ Stopp', icon: '⏸️' },
     { id: 'kostentransporter', label: '💰 Kosten Transporter', icon: '💰' },
+    { id: 'stundenzettel', label: '⏱️ Stundenzettel', icon: '⏱️' },
+    { id: 'fahrtenbuch', label: '🛣️ Fahrtenbuch', icon: '🛣️' },
   ];
 
   return (

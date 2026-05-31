@@ -11,6 +11,8 @@ import {
   Sheet7KFZKosten,
   Sheet8Stopp,
   Sheet9KostenTransporter,
+  Sheet10Stundenzettel,
+  Sheet11Fahrtenbuch,
 } from './components/sheets/SheetSkeleton'
 import { useAppStore } from './store/appStore'
 import { storageService } from './services/storage'
@@ -49,6 +51,10 @@ function App() {
         return <Sheet8Stopp />
       case 'kostentransporter':
         return <Sheet9KostenTransporter />
+      case 'stundenzettel':
+        return <Sheet10Stundenzettel />
+      case 'fahrtenbuch':
+        return <Sheet11Fahrtenbuch />
       default:
         return <Sheet1Datenblatt />
     }
