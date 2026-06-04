@@ -21,7 +21,7 @@ export default function CalculationForm({ vehicle, onCalculate }) {
   }
 
   const calculateCosts = () => {
-    let baseCost = 0
+    let baseCost
     const distance = parseFloat(formData.distance) || 0
     const hours = parseFloat(formData.hours) || 0
     const weight = parseFloat(formData.weight) || 0

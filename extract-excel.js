@@ -1,6 +1,6 @@
+/* eslint-disable no-undef */
 const XLSX = require('xlsx');
 const fs = require('fs');
-const path = require('path');
 
 const filePath = 'C:\\Users\\aydin.yildiz\\.claude\\uploads\\db892a50-e6fa-4a8c-93c1-2570e398597f\\23ad0d9a-Transporter_Kalkulation_XP13.xlsx';
 
